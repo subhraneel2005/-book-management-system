@@ -33,6 +33,7 @@ export default function LandingPage(){
               bookPicture: bookPicture,
               createdAt: serverTimestamp(),
               createdBy: user.email,
+              id: Math.random().toString(36).substr(2, 9),
         }
           await addDoc(collection(db, "books"), {
                 ...newBook
@@ -61,7 +62,7 @@ export default function LandingPage(){
 
     useEffect(() => {
         getAllAddedBooks();
-    },[getAllAddedBooks])
+    },[])
 
     return(
         <div className="bg-neutral-900 text-neutral-200 space-y-6 min-h-screen w-full p-4">
@@ -87,7 +88,7 @@ export default function LandingPage(){
                 <h1 className="text-3xl font-bold text-center">Your added books</h1>
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
                 {allBooks.map((book) => (
-                    <div className="block bg-black text-neutral-300 rounded-xl shadow-xl w-auto h-auto p-4">
+                    <div key={book.id} className="block bg-black text-neutral-300 rounded-xl shadow-xl w-auto h-auto p-4">
                         <h1 className="text-2xl font-bold text-center">{book.bookName}</h1>
                         <p className="text-xl font-bold text-center">{book.bookDescription}</p>
                         <Image src={book.bookPicture} alt="book" className="w-auto p-3 h-fit"/>
