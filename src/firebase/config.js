@@ -1,17 +1,19 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCmzv_aJcbGJ8t94rweJQ6XmjyjLXzV97I",
-  authDomain: "last-try-c546e.firebaseapp.com",
-  projectId: "last-try-c546e",
-  storageBucket: "last-try-c546e.appspot.com",
-  messagingSenderId: "404937275160",
-  appId: "1:404937275160:web:29c123edccb3fa5ccc906d"
+  apiKey: "AIzaSyDd-LeW0645rN_bSeDiPDIrwK2GiDjhI-s",
+  authDomain: "educational-website-6ec29.firebaseapp.com",
+  projectId: "educational-website-6ec29",
+  storageBucket: "educational-website-6ec29.appspot.com",
+  messagingSenderId: "748406873411",
+  appId: "1:748406873411:web:0e1d0a6526fe3a7200a3f6"
   };
 
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const auth = getAuth(app);
 
