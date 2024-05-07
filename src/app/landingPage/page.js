@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {getAuth,signOut} from "firebase/auth"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 
 export default function LandingPage(){
@@ -60,7 +61,7 @@ export default function LandingPage(){
 
     useEffect(() => {
         getAllAddedBooks();
-    },[])
+    },[getAllAddedBooks])
 
     return(
         <div className="bg-neutral-900 text-neutral-200 space-y-6 min-h-screen w-full p-4">
@@ -89,7 +90,7 @@ export default function LandingPage(){
                     <div className="block bg-black text-neutral-300 rounded-xl shadow-xl w-auto h-auto p-4">
                         <h1 className="text-2xl font-bold text-center">{book.bookName}</h1>
                         <p className="text-xl font-bold text-center">{book.bookDescription}</p>
-                        <img src={book.bookPicture} alt="book" className="w-auto p-3 h-fit"/>
+                        <Image src={book.bookPicture} alt="book" className="w-auto p-3 h-fit"/>
                         <div className="flex justify-between px-3">
                             <p className="text-lg">{`Created by :${book.createdBy}`}</p>
                             <p className="text-lg">{`Price: ₹ ${book.bookPrice}`}</p>
