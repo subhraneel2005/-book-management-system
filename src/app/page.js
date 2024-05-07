@@ -7,7 +7,7 @@ export default function Home(){
       <div className="block space-y-12">
         <h1 className="text-center text-3xl">Welcome to our own Books-Management-Website 📚</h1>
         <div>
-          <Link href={"/landingPage"}>
+          <Link href={"/auth"}>
             <Button variant="outline">Get Started</Button>
           </Link>
         </div>
